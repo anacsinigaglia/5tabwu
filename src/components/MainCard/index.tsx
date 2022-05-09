@@ -1,21 +1,37 @@
 import React from 'react';
+import { useModal } from '../../hooks/useModal';
+import { mainTexts, modalMessages } from '../../mocks/texts';
+import { Session } from '../../utils';
 import { Modal } from '../Modal';
-import { useModal } from '../Modal/useModal';
+import { QuestionBox } from '../QuestionBox';
+import { Container, StartButton } from './styles';
 
-export function MainCard() {
+interface MainCardProps {
+  session: Session | null;
+}
+
+export function MainCard({ session }: MainCardProps) {
   const { isShown, toggle } = useModal();
-  const onConfirm = () => toggle();
-  const onCancel = () => toggle();
 
   return (
-    <>
-      <button onClick={toggle}>Open modal</button>
-      <Modal
-        isShown={isShown}
-        message="Confirmation"
-        onCancel={onCancel}
-        onConfirm={onConfirm}
-      />
-    </>
+    <Container>
+      {session ? (
+        <QuestionBox />
+      ) : (
+        <>
+          <h1>{mainTexts.title}</h1>
+          <p>{mainTexts.body}</p>
+          <h2>{mainTexts.footer}</h2>
+
+          <StartButton onClick={toggle}>Start</StartButton>
+          <Modal
+            isShown={isShown}
+            message={modalMessages.login}
+            session={session}
+            isLogin={true}
+          />
+        </>
+      )}
+    </Container>
   );
 }

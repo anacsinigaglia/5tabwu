@@ -17,23 +17,20 @@ export const Container = styled.div`
   transform: translate(-50%, -50%);
   z-index: 700;
   background: var(--light-primary);
-  max-width: 52%;
-  height: fit-content;
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 1.5rem;
 `;
 
 export const ModalText = styled.h4`
+  padding: 2rem;
   color: var(--light-background);
   text-align: center;
-  padding: 2rem;
   font-size: 2rem;
 `;
 
-export const Message = styled.div`
-  text-align: center;
-  padding: 2rem;
-  font-size: 2rem;
+export const Buttons = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 export const LeftButton = styled.button`

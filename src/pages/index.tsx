@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Header session={session} />
-      <MainCard />
+      <MainCard session={session} />
     </>
   );
 };

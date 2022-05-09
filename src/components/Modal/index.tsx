@@ -9,6 +9,7 @@ import {
   LeftButton,
   RightButton,
   ModalText,
+  Buttons,
 } from './style';
 
 export interface ModalProps {
@@ -36,7 +37,7 @@ export function Modal({
         {isLogin ? (
           <AuthButton session={session} />
         ) : (
-          <>
+          <Buttons>
             {leftButton && (
               <LeftButton onClick={leftButton.onPress}>
                 {leftButton.label}
@@ -47,7 +48,7 @@ export function Modal({
                 {rightButton.label}
               </RightButton>
             )}
-          </>
+          </Buttons>
         )}
       </Container>
     </>
