@@ -40,8 +40,8 @@ export const QuestionBox = () => {
     <>
       <Container>
         <InfoDiv>
-          {currQuestion?.category} ━{' '}
-          {capitalizeFirstLetter(currQuestion?.difficulty)}
+          {`${currQuestion?.category} ━
+          ${capitalizeFirstLetter(currQuestion?.difficulty)}`}
         </InfoDiv>
         <h1 className="question">{currQuestion?.question}</h1>
 
