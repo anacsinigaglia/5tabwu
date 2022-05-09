@@ -3,11 +3,7 @@ import { signOut } from 'next-auth/react';
 import { Modal } from '../Modal';
 import { ButtonsDiv, Container, InfoDiv } from './styles';
 import { useModal } from '../../hooks/useModal';
-import {
-  capitalizeFirstLetter,
-  pickRandomQuestion,
-  Question,
-} from '../../utils';
+import { capitalizeFirstLetter, Question } from '../../utils';
 import { questions } from '../../mocks/questions';
 import { modalMessages } from '../../mocks/texts';
 import { useEffect, useState } from 'react';
@@ -17,8 +13,6 @@ export const QuestionBox = () => {
   const [question, setQuestion] = useState<Question>();
 
   var askedOnes: Question[] = questions.results;
-
-  console.log(askedOnes);
 
   useEffect(() => {
     handleNext();
@@ -37,14 +31,6 @@ export const QuestionBox = () => {
     askedOnes = questions.results;
   };
 
-  const handleContinue = () => {
-    toggle();
-  };
-
-  const handleError = () => {
-    toggle();
-  };
-
   return (
     <>
       <Container>
@@ -57,7 +43,7 @@ export const QuestionBox = () => {
           <button className="answer" onClick={handleNext}>
             {question?.correct_answer}
           </button>
-          <button className="answer" onClick={handleError}>
+          <button className="answer" onClick={toggle}>
             {question?.incorrect_answers[0]}
           </button>
         </ButtonsDiv>
@@ -67,7 +53,7 @@ export const QuestionBox = () => {
         message={modalMessages.lost.main}
         leftButton={{
           label: modalMessages.lost.restart,
-          onPress: handleContinue,
+          onPress: toggle,
         }}
         rightButton={{
           label: modalMessages.lost.leave,
