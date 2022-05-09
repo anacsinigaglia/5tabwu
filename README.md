@@ -1,13 +1,7 @@
 Hello :)
 
-# 1
+### 1- Run yarn
 
-Run yarn
+### 2- Fill .env
 
-# 2
-
-Fill .env
-
-## 3
-
-Run yarn dev
+### 3- Run yarn dev
