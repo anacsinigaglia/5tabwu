@@ -5,7 +5,7 @@ import { Session } from '../../utils/type';
 import { Container } from './styles';
 
 interface AuthButtonProps {
-  session: Session | null;
+  session?: Session | null;
 }
 
 export function AuthButton({ session }: AuthButtonProps) {
