@@ -1,6 +1,6 @@
 import { ButtonDiv, Container, TitleDiv } from './styles';
 import { FiAward } from 'react-icons/fi';
-import { Session } from '../../utils/type';
+import { Session } from '../../utils';
 import { AuthButton } from '../AuthButton';
 
 interface HeaderProps {

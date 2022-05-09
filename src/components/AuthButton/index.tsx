@@ -1,7 +1,7 @@
 import { signIn, signOut } from 'next-auth/react';
 import { FaGoogle } from 'react-icons/fa';
 import { FiX } from 'react-icons/fi';
-import { Session } from '../../utils/type';
+import { Session } from '../../utils';
 import { Container } from './styles';
 
 interface AuthButtonProps {

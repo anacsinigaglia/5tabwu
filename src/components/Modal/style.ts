@@ -6,24 +6,28 @@ export const Backdrop = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 500;
 `;
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 700;
-`;
-
-export const StyledModal = styled.div`
-  background: var(--light-background);
+  background: var(--light-primary);
+  max-width: 52%;
   height: fit-content;
-  margin: 0 auto;
   padding: 2rem;
   border-radius: 1.5rem;
+`;
+
+export const ModalText = styled.h4`
+  color: var(--light-background);
+  text-align: center;
+  padding: 2rem;
+  font-size: 2rem;
 `;
 
 export const Message = styled.div`
@@ -32,11 +36,11 @@ export const Message = styled.div`
   font-size: 2rem;
 `;
 
-export const RestartButton = styled.button`
+export const LeftButton = styled.button`
   background: var(--secondary);
 `;
 
-export const LeaveButton = styled.button`
+export const RightButton = styled.button`
   background: var(--primary);
   color: var(--white);
   margin-left: 2rem;

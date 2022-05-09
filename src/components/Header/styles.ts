@@ -11,11 +11,12 @@ export const TitleDiv = styled.div`
   display: flex;
   align-items: center;
   padding: 2rem 5rem;
+  font-size: 2.2rem;
+  font-weight: bold;
 
   svg {
     background: var(--primary);
     margin-right: 1.5rem;
-    font-size: 2.2rem;
     padding: 0.3rem;
   }
 `;

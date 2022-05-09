@@ -1,33 +1,55 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Button, Session } from '../../utils';
+import { AuthButton } from '../AuthButton';
 
 import {
-  Wrapper,
-  StyledModal,
+  Container,
   Backdrop,
-  Message,
-  RestartButton,
-  LeaveButton,
+  LeftButton,
+  RightButton,
+  ModalText,
 } from './style';
 
 export interface ModalProps {
   isShown: boolean;
-  onConfirm: () => void;
-  onCancel: () => void;
   message: string;
+  leftButton?: Button;
+  rightButton?: Button;
+  session?: Session | null;
+  isLogin: boolean;
 }
 
-export function Modal({ isShown, message, onConfirm, onCancel }: ModalProps) {
+export function Modal({
+  isShown,
+  message,
+  isLogin = false,
+  leftButton,
+  rightButton,
+  session,
+}: ModalProps) {
   const modal = (
     <>
       <Backdrop />
-      <Wrapper>
-        <StyledModal>
-          <Message>{message}</Message>
-          <RestartButton onClick={onConfirm}>Restart game</RestartButton>
-          <LeaveButton onClick={onCancel}>Leave</LeaveButton>
-        </StyledModal>
-      </Wrapper>
+      <Container>
+        <ModalText>{message}</ModalText>
+        {isLogin ? (
+          <AuthButton session={session} />
+        ) : (
+          <>
+            {leftButton && (
+              <LeftButton onClick={leftButton.onPress}>
+                {leftButton.label}
+              </LeftButton>
+            )}
+            {rightButton && (
+              <RightButton onClick={rightButton.onPress}>
+                {rightButton.label}
+              </RightButton>
+            )}
+          </>
+        )}
+      </Container>
     </>
   );
 
