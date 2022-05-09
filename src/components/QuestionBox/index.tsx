@@ -4,31 +4,31 @@ import { Modal } from '../Modal';
 import { ButtonsDiv, Container, InfoDiv } from './styles';
 import { useModal } from '../../hooks/useModal';
 import { capitalizeFirstLetter, Question } from '../../utils';
-import { questions } from '../../mocks/questions';
 import { modalMessages } from '../../mocks/texts';
 import { useEffect, useState } from 'react';
+import { questions } from '../../mocks/questions';
 
 export const QuestionBox = () => {
   const { isShown, toggle } = useModal();
   const [question, setQuestion] = useState<Question>();
 
-  var askedOnes: Question[] = questions.results;
+  var availableQuestions: Question[] = questions;
 
   useEffect(() => {
     handleNext();
   }, []);
 
   const handleNext = () => {
-    var randomIndex = Math.floor(Math.random() * askedOnes.length);
-    var currItem = askedOnes[randomIndex];
-    askedOnes.splice(randomIndex, 1);
+    var randomIndex = Math.floor(Math.random() * availableQuestions.length);
+    var currItem = availableQuestions[randomIndex];
+    availableQuestions.splice(randomIndex, 1);
 
     setQuestion(currItem);
   };
 
   const handleLeave = () => {
     signOut();
-    askedOnes = questions.results;
+    availableQuestions = questions;
   };
 
   return (
