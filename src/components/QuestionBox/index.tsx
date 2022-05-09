@@ -10,41 +10,47 @@ import { questions } from '../../mocks/questions';
 
 export const QuestionBox = () => {
   const { isShown, toggle } = useModal();
-  const [question, setQuestion] = useState<Question>();
-
-  var availableQuestions: Question[] = questions;
+  const [availableQuestions, setAvailableQuestions] =
+    useState<Question[]>(questions);
+  const [currQuestion, setCurrQuestion] = useState<Question>();
 
   useEffect(() => {
-    handleNext();
+    handleNextQuestion();
   }, []);
 
-  const handleNext = () => {
+  const handleNextQuestion = () => {
     var randomIndex = Math.floor(Math.random() * availableQuestions.length);
     var currItem = availableQuestions[randomIndex];
     availableQuestions.splice(randomIndex, 1);
 
-    setQuestion(currItem);
+    setCurrQuestion(currItem);
   };
 
   const handleLeave = () => {
     signOut();
-    availableQuestions = questions;
+    setAvailableQuestions(questions);
+  };
+
+  const handleContinue = () => {
+    toggle();
+    handleNextQuestion();
   };
 
   return (
     <>
       <Container>
         <InfoDiv>
-          {question?.category} ━ {capitalizeFirstLetter(question?.difficulty)}
+          {currQuestion?.category} ━{' '}
+          {capitalizeFirstLetter(currQuestion?.difficulty)}
         </InfoDiv>
-        <h1 className="question">{question?.question}</h1>
+        <h1 className="question">{currQuestion?.question}</h1>
 
         <ButtonsDiv>
-          <button className="answer" onClick={handleNext}>
-            {question?.correct_answer}
+          <button className="answer" onClick={handleNextQuestion}>
+            {currQuestion?.correct_answer}
           </button>
           <button className="answer" onClick={toggle}>
-            {question?.incorrect_answers[0]}
+            {currQuestion?.incorrect_answers[0]}
           </button>
         </ButtonsDiv>
       </Container>
@@ -53,7 +59,7 @@ export const QuestionBox = () => {
         message={modalMessages.lost.main}
         leftButton={{
           label: modalMessages.lost.restart,
-          onPress: toggle,
+          onPress: handleContinue,
         }}
         rightButton={{
           label: modalMessages.lost.leave,
