@@ -12,8 +12,6 @@ export const QuestionBox = () => {
   const { isShown, toggle } = useModal();
   const { questions } = useQuestionContext();
 
-  const [availableQuestions, setAvailableQuestions] =
-    useState<Question[]>(questions);
   const [currQuestion, setCurrQuestion] = useState<Question>();
 
   useEffect(() => {
@@ -21,16 +19,15 @@ export const QuestionBox = () => {
   }, []);
 
   const handleNextQuestion = () => {
-    var randomIndex = Math.floor(Math.random() * availableQuestions.length);
-    var currItem = availableQuestions[randomIndex];
-    availableQuestions.splice(randomIndex, 1);
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    const currItem = questions[randomIndex];
+    questions.splice(randomIndex, 1);
 
     setCurrQuestion(currItem);
   };
 
   const handleLeave = () => {
     signOut();
-    setAvailableQuestions(questions);
   };
 
   const handleContinue = () => {
