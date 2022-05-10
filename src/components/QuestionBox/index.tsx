@@ -52,7 +52,7 @@ export const QuestionBox = () => {
             {currQuestion?.correct_answer}
           </button>
           <button className="answer" onClick={toggle}>
-            {currQuestion?.incorrect_answers[0]}
+            {currQuestion?.incorrect_answer}
           </button>
         </ButtonsDiv>
       </Container>
