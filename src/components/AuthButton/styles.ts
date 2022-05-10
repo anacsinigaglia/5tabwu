@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.button`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -16,10 +16,10 @@ export const Container = styled.button`
     &:first-child {
       margin-right: 1rem;
     }
+  }
 
-    &:last-child {
-      margin-left: 1rem;
-      color: var(--grey);
-    }
+  .close {
+    color: var(--grey);
+    margin-left: 1rem;
   }
 `;
