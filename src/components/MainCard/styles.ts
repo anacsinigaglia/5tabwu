@@ -22,7 +22,7 @@ export const StartButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2.5rem auto 0 auto;
+  margin: 1.8rem auto 0 auto;
   background: var(--primary);
   color: var(--white);
 `;

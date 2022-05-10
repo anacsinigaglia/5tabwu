@@ -6,10 +6,12 @@ import { useModal } from '../../hooks/useModal';
 import { capitalizeFirstLetter, Question } from '../../utils';
 import { modalMessages } from '../../mocks/texts';
 import { useEffect, useState } from 'react';
-import { questions } from '../../mocks/questions';
+import { useQuestionContext } from '../../contexts';
 
 export const QuestionBox = () => {
   const { isShown, toggle } = useModal();
+  const { questions } = useQuestionContext();
+
   const [availableQuestions, setAvailableQuestions] =
     useState<Question[]>(questions);
   const [currQuestion, setCurrQuestion] = useState<Question>();
