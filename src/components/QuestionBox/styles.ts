@@ -11,4 +11,14 @@ export const InfoDiv = styled.div`
 
 export const ButtonsDiv = styled.div`
   margin-top: 1.5rem;
+
+  button:first-child {
+    background: var(--secondary);
+  }
+
+  button:last-child {
+    background: var(--primary);
+    color: var(--white);
+    margin-left: 1rem;
+  }
 `;
