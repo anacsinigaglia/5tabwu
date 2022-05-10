@@ -1,5 +1,5 @@
 import { Question } from '../../utils';
-import { questions } from '../../mocks/questions';
+import { questions } from './data';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 
