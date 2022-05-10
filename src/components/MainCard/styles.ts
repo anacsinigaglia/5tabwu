@@ -25,4 +25,5 @@ export const StartButton = styled.button`
   margin: 1.8rem auto 0 auto;
   background: var(--primary);
   color: var(--white);
+  border: 1px solid var(--secondary);
 `;

@@ -18,14 +18,20 @@ export const Container = styled.div`
   z-index: 700;
   background: var(--light-primary);
   padding: 2.5rem;
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
 `;
 
-export const ModalText = styled.h4`
-  padding: 2rem;
+export const ModalText = styled.p`
+  padding: 1rem 1rem 3rem 1rem;
   color: var(--light-background);
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.2rem;
+`;
+
+export const ModalTitle = styled.h1`
+  color: var(--primary);
+  padding-bottom: 0.5rem;
+  text-align: center;
 `;
 
 export const Buttons = styled.div`

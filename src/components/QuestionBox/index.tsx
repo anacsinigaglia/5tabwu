@@ -67,6 +67,7 @@ export const QuestionBox = () => {
       </Container>
 
       <Modal
+        title={modalMessages.lost.gameOver}
         message={modalMessages.lost.main}
         leftButton={{
           label: modalMessages.lost.restart,

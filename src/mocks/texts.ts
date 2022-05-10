@@ -13,8 +13,12 @@ export const mainTexts = {
 };
 
 export const modalMessages = {
-  login: 'First, who are you?',
+  login: {
+    signIn: 'Sign in',
+    welcome: 'Welcome to 5TABWU! Please, tell us who you are.',
+  },
   lost: {
+    gameOver: 'Game Over?',
     main: 'Ohh :( It seems like you lost... Try again!',
     restart: 'Restart game',
     leave: 'Leave',

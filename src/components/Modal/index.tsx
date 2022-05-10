@@ -9,12 +9,14 @@ import {
   LeftButton,
   RightButton,
   ModalText,
+  ModalTitle,
   Buttons,
 } from './style';
 
 export interface ModalProps {
   isShown: boolean;
   message: string;
+  title: string;
   leftButton?: Button;
   rightButton?: Button;
   session?: Session | null;
@@ -23,6 +25,7 @@ export interface ModalProps {
 
 export function Modal({
   isShown,
+  title,
   message,
   isLogin = false,
   leftButton,
@@ -33,6 +36,7 @@ export function Modal({
     <>
       <Backdrop />
       <Container>
+        <ModalTitle>{title}</ModalTitle>
         <ModalText>{message}</ModalText>
         {isLogin ? (
           <AuthButton session={session} />

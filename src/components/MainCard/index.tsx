@@ -26,7 +26,8 @@ export function MainCard({ session }: MainCardProps) {
           <StartButton onClick={toggle}>Start</StartButton>
           <Modal
             isShown={isShown}
-            message={modalMessages.login}
+            title={modalMessages.login.signIn}
+            message={modalMessages.login.welcome}
             session={session}
             isLogin={true}
           />
