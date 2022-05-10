@@ -14,11 +14,13 @@ export const ButtonsDiv = styled.div`
 
   button:first-child {
     background: var(--secondary);
+    border: 1px solid var(--primary);
   }
 
   button:last-child {
     background: var(--primary);
     color: var(--white);
     margin-left: 1rem;
+    border: 1px solid var(--secondary);
   }
 `;
