@@ -48,11 +48,23 @@ export const QuestionBox = () => {
         <h1 className="question">{currQuestion?.question}</h1>
 
         <ButtonsDiv>
-          <button className="answer" onClick={handleNextQuestion}>
-            {currQuestion?.correct_answer}
+          <button
+            onClick={
+              currQuestion?.correct_answer === 'True'
+                ? handleNextQuestion
+                : toggle
+            }
+          >
+            True
           </button>
-          <button className="answer" onClick={toggle}>
-            {currQuestion?.incorrect_answer}
+          <button
+            onClick={
+              currQuestion?.incorrect_answer === 'False'
+                ? toggle
+                : handleNextQuestion
+            }
+          >
+            False
           </button>
         </ButtonsDiv>
       </Container>
